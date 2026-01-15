@@ -28,3 +28,5 @@ class Outils:
         for nombre in nombres:
             somme += nombre
         return somme
+    def moyenne(self,nombres):
+        return self.somme(nombres)/len(nombres)
