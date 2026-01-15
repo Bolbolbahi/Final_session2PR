@@ -13,19 +13,18 @@ class Triangle:
             etoiles="*"*i
             lignes.append(espaces+etoiles)
         return lignes
-class Affichage :
-    def afficher (self, lignes):
-        for ligne in lignes:
-            print(ligne)
 
-
+class Affichage:
+    def afficher_cote_a_cote(self, triangle_droite, triangle_gauche):
+        for d, g in zip(triangle_droite, triangle_gauche):
+            print(d + "    " + g)
 n=int(input("Entrez un entier n : "))
 
 triangle = Triangle(n)
 affichage = Affichage()
 
-affichage.afficher(triangle.triangle_droite())
-print()
-affichage.afficher(triangle.triangle_gauche())
-print()
+droite = triangle.triangle_droite()
+gauche = triangle.triangle_gauche()
+
+affichage.afficher_cote_a_cote(droite, gauche)
 
