@@ -16,6 +16,7 @@ class Outils:
             if nombre < min_value:
                 min_value = nombre
         return min_value
+
     def maximum(self,nombres):
         max_value = nombres[0]
         for nombre in nombres:
