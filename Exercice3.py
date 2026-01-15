@@ -10,3 +10,9 @@ class Outils:
                 except ValueError:
                     print("Erreur : veuillez entrer un entier valide.")
         return nombres
+    def minimum(self,nombres):
+        min_value = nombres[0]
+        for nombre in nombres:
+            if nombre < min_value:
+                min_value = nombre
+        return min_value
