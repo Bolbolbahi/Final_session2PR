@@ -23,3 +23,8 @@ class Outils:
             if nombre > max_value:
                 max_value = nombre
         return max_value
+    def somme(self,nombres):
+        somme = 0
+        for nombre in nombres:
+            somme += nombre
+        return somme
