@@ -26,3 +26,17 @@ class CalculateurDouble(QWidget):
 
         except ValueError:
             QMessageBox.warning(self, 'Erreur', 'Veuillez entrer un nombre valide.')
+
+    def sauvegarder_resultat(self):
+        texte_resultat = self.champ_resultat.text().strip()
+
+        if not texte_resultat:
+            QMessageBox.warning(self, 'Erreur', 'Aucun résultat à sauvegarder. Veuillez d\'abord calculer un double.')
+            return
+
+        try:
+            with open('resultats.txt', 'w', encoding='utf-8') as fichier:
+                fichier.write(texte_resultat)
+            QMessageBox.information(self, 'Succès', 'Le résultat a été sauvegardé dans resultats.txt')
+        except Exception as e:
+            QMessageBox.critical(self, 'Erreur', f'Erreur lors de la sauvegarde : {str(e)}')
