@@ -40,3 +40,23 @@ class CalculateurDouble(QWidget):
             QMessageBox.information(self, 'Succès', 'Le résultat a été sauvegardé dans resultats.txt')
         except Exception as e:
             QMessageBox.critical(self, 'Erreur', f'Erreur lors de la sauvegarde : {str(e)}')
+
+    def charger_resultat(self):
+        try:
+            with open('resultats.txt', 'r', encoding='utf-8') as fichier:
+                contenu = fichier.read().strip()
+
+            if not contenu:
+                QMessageBox.warning(self, 'Attention', 'Le fichier resultats.txt est vide.')
+                return
+            try:
+                float(contenu)
+                self.champ_resultat.setText(contenu)
+                QMessageBox.information(self, 'Succès', 'Le résultat a été chargé depuis resultats.txt')
+            except ValueError:
+                QMessageBox.warning(self, 'Erreur', 'Le contenu du fichier n\'est pas un nombre valide.')
+
+        except FileNotFoundError:
+            QMessageBox.warning(self, 'Erreur', 'Le fichier resultats.txt n\'existe pas.')
+        except Exception as e:
+            QMessageBox.critical(self, 'Erreur', f'Erreur lors du chargement : {str(e)}')
