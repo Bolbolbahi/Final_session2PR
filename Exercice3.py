@@ -30,3 +30,13 @@ class Outils:
         return somme
     def moyenne(self,nombres):
         return self.somme(nombres)/len(nombres)
+
+outils = Outils()
+
+liste_nombres = outils.saisir()
+
+print("Minimum :", outils.minimum(liste_nombres))
+print("Maximum :", outils.maximum(liste_nombres))
+print("Somme :", outils.somme(liste_nombres))
+print("Moyenne :", outils.moyenne(liste_nombres))
+
