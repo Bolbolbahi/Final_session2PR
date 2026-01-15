@@ -18,3 +18,14 @@ class Affichage :
         for ligne in lignes:
             print(ligne)
 
+
+n=int(input("Entrez un entier n : "))
+
+triangle = Triangle(n)
+affichage = Affichage()
+
+affichage.afficher(triangle.triangle_droite())
+print()
+affichage.afficher(triangle.triangle_gauche())
+print()
+
